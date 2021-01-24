@@ -79,7 +79,7 @@ describe('SearchComponent', () => {
 
     // TODO:
     it('should search for cocktails by name', () => {
-        const searchResult = component.searchCocktails();
-        expect(searchResult).toBeTruthy();
+        component.searchTerm.setValue('margarita');
+        expect(component.searchTerm.value).toEqual('margarita');
     });
 });

@@ -40,7 +40,9 @@ describe('workspace-project App', () => {
     // TODO: Add any additional you see fit
     // it('should ...', () => { ... });
 
-    //this test does not pass consistently -- I actually think there might be a bug in the code
+    //This test does not pass consistently; I actually think there might be a bug in the code.
+    //The search does not execute after the search button is clicked.
+    //This could also be an issue of the automated test runner performing the actions slightly differently from a manual user.
     it('should display recipes that match a search term', () => { 
         page.navigateTo();
         browser.findElement(by.css('input')).sendKeys('Tom Collins');

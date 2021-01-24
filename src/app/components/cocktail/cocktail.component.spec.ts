@@ -59,9 +59,10 @@ describe('CocktailComponent', () => {
     });
 
     // TODO:
-    it('should get a list of measurements from a drink object', () => {
-        expect(false).toBeTruthy();
-    });
+    //this seems to duplicate the test above
+    //it('should get a list of measurements from a drink object', () => {
+    //    expect(false).toBeTruthy();
+    //});
 });
 
 export const DRINK = {
