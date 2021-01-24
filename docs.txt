@@ -1,0 +1,86 @@
+QA TEST SCENARIOS
+
+I have written these use cases in Gherkin's Given-When-Then format because I find it to be a helpful way of specifying expected behavior.
+
+**Basic Search**
+
+Scenario: Search cocktails by keyword on home page
+When search term <keyword> is entered on the home page
+Then cocktail cards with name containing <keyword> are displayed
+
+Scenario: Search cocktails by keyword on cocktails page
+When search term <keyword> is entered on the cocktails page
+Then cocktail cards with name containing <keyword> are displayed
+
+Scenario: Search term with no results on home page goes to cocktails page
+When a search term is entered on the home page that returns no results
+Then the cocktails page is displayed
+(Is this expected behavior? Should the cocktails page display 'No records found.'?)
+
+Scenario: Search term with no results on cocktails page displays message
+When a search term is entered on the cocktails page that returns no results
+Then a 'No records found.' message is displayed
+
+**Randomized Search**
+
+Scenario: Random Recipe button displays random recipe
+When the Random Recipe button on the home page is clicked
+Then a random recipe is displayed
+
+Scenario: Random recipe is different from previous random recipe
+Given the Random Recipe button on the home page has been clicked
+And a random recipe has been displayed
+When the Random Recipe button is clicked again
+Then a different random recipe is displayed
+
+**Viewing Result(s)**
+
+Scenario: Clicking on Cocktail List button displays cocktails page
+When the Cocktail List button is clicked on the home page
+Then the cocktails page is displayed 
+
+Scenario: View Recipe button displays recipe details
+Given a cocktail card is displayed
+When the view recipe button is clicked
+Then the recipe details are displayed
+
+Scenario: Return to List link displays cocktails page
+Given the recipe details are displayed
+When the Return to List link is clicked
+Then the main cocktails page is displayed
+
+Scenario: Card and table view icons display cocktails correctly
+Given the cocktail cards are in {card/table} view
+When the {card/table} view icon is clicked
+Then the cards are displayed in {card/table} format
+
+Scenario: Navigation arrows advance cocktail pages
+Given the full list of cocktails is displayed
+When the {left/right} arrow is clicked
+Then the list moves to the {previous/next} page
+
+**Search + Filtering Result(s)**
+
+Scenario Outline: Filter cocktails
+When <filterName> has been selected from <filterType>
+Then only cocktail cards with <filterName> are displayed
+Examples:
+| filterType | filterName |
+| Category | Punch/Party Drink |
+| Ingredient | Gin |
+| Alcoholic | Non alcoholic |
+| Glass | Highball Glass |
+(Suggestion for improvement: Allow filtering in multiple categories at once.)
+
+**Browsers to test**
+Chrome
+Edge
+Firefox
+Internet Explorer?
+Opera
+Safari
+
+**Screen sizes to test**
+1920x1080
+1366x768
+360x640
